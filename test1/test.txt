@@ -1,4 +1,0 @@
-1.HTML stands for Hyper Text Markup Language and it is used to create webpages.It uses HTML tags and attributes to describe the structure and formatting of a web page.
-2.HTML tags are used to tell browser how to display a web page.
-Eg.<html></html>
-<body></body>
