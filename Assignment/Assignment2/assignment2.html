@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head><style>
+        input:valid
+        {
+            background-color: cornflowerblue;
+        }
+        input:invalid
+        {
+            background-color: yellowgreen;
+        }
+        body
+        {
+            
+            font-weight: bold;
+        }
+        form{
+            width: 300px;
+            border: 1px solid;
+            font-size: 20px;
+        }
+        input
+        {
+            font-size: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <form>
+            <label>REGISTRATION</label><br>
+            <label>User Name</label><br>
+            <input type="text"minlength="4"maxlength="10"><br>
+            <label>Email</label><br>
+            <input type="email"><br>
+            <label>Passsword</label><br>
+            <input type="password"minlength="8"><br>
+            <label>Age</label><br>
+            <input type="number"min="8"max="10"required><br>
+            <label>Zip Code</label><br>
+<input type="text"required pattern="\d{5}"title="Enter 5 digit zip code"><br><br>
+<input type="submit"> <input type="reset">
+        </form>
+    </body>
+</html>
