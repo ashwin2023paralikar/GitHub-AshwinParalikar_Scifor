@@ -1,0 +1,9 @@
+1.HTML stands for Hyper Text Markup Language.It is used to create web pages.It uses HTML tags and attributes to describe the structure and formatting of web page.
+2.HTMl tags and elements are not same.HTML uses predefined tags to tell the browser the content.HTMl elements include an opening tag,some content and a closing tag.
+3.HTML tags are used to create elements.Attributes are used for styling html elements.
+4.Void elements dosent require any end tag.Ex:<img> tag.
+5.Features of HTML
+1.It is easy to learn and easy to use.
+2.It is platform independant.
+3.Images,video and audio can be added to a web page.
+6.XHTML stands for Extensible Hypertext Markup Language.XHTML can be used with different data formats.
