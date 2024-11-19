@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1()
+        {
+var x=parseFloat(document.getElementById("select1").value);
+var y=parseFloat(document.getElementById("select2").value);
+var z=document.getElementById("select3").value;
+switch(z)
+{
+    case "+":
+    document.write(x+y);
+break;
+case "-":
+document.write(x-y);
+break;
+case "*":
+document.write(x*y);
+break;
+case "/":
+    document.write(x/y);
+    break;
+}
+
+        }
+    </script>
+        <body>
+            <div style="border:1px solid black;background-color: springgreen;">
+                <h1>Calculator</h1>
+            <input type="select"id="select1">
+            <br>
+            <br>
+            <input type="select" id="select2">
+            <br>
+            <br>
+            <p>Enter Value +,-,*,/</p>
+            <input type="select" id="select3"><br>
+            <br>
+            <button id="button1" onclick="f1()">Submit</button>
+            </div>
+            </body>
+
+</html>
