@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("demo").innerHTML = this.responseText;
+              }
+            xhttp.open("GET", "./about.html", true);
+            xhttp.send();
+          }
+          </script>
+    </head>
+<body>
+
+<div id="demo">
+  <h2>Ajax</h2>
+  <button type="button" onclick="loadDoc()">Get Content</button>
+</div>
+
+</body>
+</html>
