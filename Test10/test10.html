@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('https://dummyjson.com/products/1')
+.then(res => res.json())
+.then(data =>{
+    const Container=document.createElement('div');
+        Container.innerHTML=data.title
+        document.body.appendChild(Container);
+})
+    </script>
+</body>
+</html>
