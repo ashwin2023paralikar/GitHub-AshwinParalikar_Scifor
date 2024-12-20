@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+function Userdetails(props)
+{
+return(<div><h3>Name:{props.name}</h3>
+    <br/><h3>Age:{props.age}</h3><br/>
+    <h3>Email:{props.email}</h3><br/>
+    <h3>Mobile Number:{props.mobile}</h3><br/>
+    <h3>City:{props.city}</h3>
+    </div>);
+
+}
+ReactDOM.render(<Userdetails name={"ABC"}age={20}email={"xyz@gmail.com"}mobile={9855055588}city={"Mumbai"}/>,document.getElementById("root"));
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
