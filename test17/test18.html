@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <p><span id="counter">0</span></p>
+    <button onclick="Counter()">Increment</button>
+<button onclick="counter1()">
+    Decrement
+</button>
+    <script>
+        let count = 0;
+
+        function Counter() {
+            count++;
+            document.getElementById('counter').innerText = count;
+        }
+        function counter1()
+        {
+            count--;
+            document.getElementById("counter").innerText=count;
+        }
+    </script>
+</body>
+</html>
