@@ -1,0 +1,71 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Context API Example</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body id="body1">
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const CounterContext = React.createContext();
+
+
+    function CounterProvider({ children }) {
+      
+      const [count, setCount] = React.useState(0);
+
+      const increment = () =>document.getElementById("body1").style.backgroundColor="red";
+      
+      const decrement = () => document.getElementById("body1").style.backgroundColor="green";
+
+      return (
+        <CounterContext.Provider value={{ count, increment, decrement }}>
+          {children}
+        </CounterContext.Provider>
+      );
+    }
+
+    function CounterDisplay() {
+      const { count } = React.useContext(CounterContext);
+
+      return <h1>Hello</h1>;
+    }
+
+    function CounterControls() {
+      const { increment, decrement } = React.useContext(CounterContext);
+
+      return (
+        <div>
+         
+          <button onClick={increment}>Red</button>
+          <button onClick={decrement}>Green</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <CounterProvider>
+          <div>
+            <h1>Welcome To React</h1>
+            <CounterDisplay />
+            <CounterControls />
+          </div>
+        </CounterProvider>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+
+</body>
+</html>
