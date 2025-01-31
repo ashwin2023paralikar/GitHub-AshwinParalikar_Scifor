@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List (Context API)</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const TaskContext = React.createContext();
+
+const TaskProvider = ({ children }) => {
+    const [tasks, setTasks] = React.useState([]);
+
+    const addTask = (task) => {
+            setTasks([...tasks, task]);
+      
+    };
+
+    return (
+        <TaskContext.Provider value={{ tasks, addTask,}}>
+            {children}
+        </TaskContext.Provider>
+    );
+};
+
+const TaskInput = () => {
+    const { addTask } = React.useContext(TaskContext);
+    const [task, setTask] = React.useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addTask(task);
+        setTask("");
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+                placeholder="Enter a task..."
+            /><br/>
+            <br/>
+            <button type="submit">Add Task</button>
+        </form>
+    );
+};
+
+const TaskList = () => {
+    const { tasks, removeTask } = React.useContext(TaskContext);
+
+    return (
+        <ul>
+            {tasks.map((task, index) => (
+                <li key={index}>
+                    {task}
+                </li>
+            ))}
+        </ul>
+    );
+};
+
+const App = () => {
+    return (
+        <TaskProvider>
+            <h2>To-Do List</h2>
+            <TaskInput />
+            <TaskList />
+        </TaskProvider>
+    );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+
+</body>
+</html>
