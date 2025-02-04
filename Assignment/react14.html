@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function App() {
+            const [cart, setCart] = React.useState([]);
+
+            const products = [
+                { id: 1, name: "Product 1", price: 100 },
+                { id: 2, name: "Product 2", price: 200 }
+            ];
+
+            const addToCart = (product) => 
+            {
+                setCart([...cart, product]);
+            };
+
+            const removeFromCart = (index) => 
+            {
+                setCart(cart.filter((_, i) => i !== index));
+            };
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+            return (
+                <div>
+                    
+                    {products.map((product, index) => (
+                        <div key={index} className="item">
+                            <br/><span>{product.name} - &#8377;{product.price}</span>&nbsp;
+                            <button onClick={() => addToCart(product)}>Add</button>
+                            
+                        </div>
+                    ))}
+
+                    <h2>Cart</h2>
+                    {cart.length === 0 ? <p>Cart is empty</p> : (
+                        cart.map((item, index) => (
+                            <div key={index} className="item">
+                                <span>{item.name} - &#8377;{item.price}</span>
+                                <button onClick={() => removeFromCart(index)}>Remove</button>
+                            </div>
+                        ))
+                    )}
+                    <h3>Total: &#8377;{total}</h3>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+
+</body>
+</html>
